@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
@@ -29,6 +30,11 @@ const t = useTranslations(locale);
   <Breadcrumb />
 
   <Main pageTitle={t.pages.postsTitle} pageDesc={t.pages.postsDesc}>
+    <nav aria-label="随笔专题" class="mb-8 flex flex-wrap gap-4">
+      {["Agent", "Hot100"].map(topic => (
+        <a class="rounded-lg border border-border px-4 py-2 hover:text-accent" href={getRelativeLocaleUrl(locale, "topics/" + topic.toLowerCase())}>{topic} 专题</a>
+      ))}
+    </nav>
     <ul>
       {page.data.map(data => <Card {...data} />)}
     </ul>

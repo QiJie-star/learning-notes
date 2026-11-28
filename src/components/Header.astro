@@ -52,7 +52,8 @@ const isActive = (path: string) => {
       href={getRelativeLocaleUrl(locale, "")}
       class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
     >
-      {site.title}
+      <span class="sr-only">章奇杰</span>
+      <typing-brand aria-hidden="true">章奇杰</typing-brand>
     </a>
     <nav
       id="nav-menu"
@@ -81,6 +82,9 @@ const isActive = (path: string) => {
           >
             {t.nav.posts}
           </a>
+        </li>
+        <li class="col-span-2">
+          <a href={getRelativeLocaleUrl(locale, "projects")} class:list={{ "active-nav": isActive("/projects") }}>项目</a>
         </li>
         <li class="col-span-2">
           <a
@@ -223,4 +227,42 @@ const isActive = (path: string) => {
 
   handleSkipToContent();
   document.addEventListener("astro:after-swap", handleSkipToContent);
+</script>
+
+<style>
+  typing-brand { display: inline-block; min-width: 11ch; font-family: system-ui, sans-serif; font-weight: 750; }
+  @media (prefers-reduced-motion: no-preference) {
+    typing-brand:defined::after { content: "|"; font-weight: 400; animation: blink-caret 1s steps(2, start) infinite; }
+    @keyframes blink-caret { 50% { opacity: 0; } }
+  }
+</style>
+
+<script>
+  class TypingBrand extends HTMLElement {
+    timer = 0;
+    connectedCallback() {
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const word = Array.from(this.textContent?.trim() || "章奇杰");
+
+      let length = 0;
+      let deleting = false;
+      const tick = () => {
+
+        this.textContent = word.slice(0, length).join("");
+        let delay = deleting ? 50 : 100;
+        if (length === word.length && !deleting) {
+          deleting = true;
+          delay = 1000;
+        } else if (length === 0 && deleting) {
+
+          deleting = false;
+        }
+        length += deleting ? -1 : 1;
+        this.timer = window.setTimeout(tick, delay);
+      };
+      tick();
+    }
+    disconnectedCallback() { window.clearTimeout(this.timer); }
+  }
+  if (!customElements.get("typing-brand")) customElements.define("typing-brand", TypingBrand);
 </script>

@@ -1,0 +1,22 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import config from "@/config";
+
+
+---
+
+<Layout title={`${"项目"} | ${config.site.title}`}>
+  <Header />
+
+  <Breadcrumb />
+
+  <Main pageTitle={"项目"}>
+    <p>暂无项目。</p>
+  </Main>
+
+  <Footer />
+</Layout>

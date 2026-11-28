@@ -3,9 +3,9 @@ import type { UIStrings } from "../types";
 export default {
   nav: {
     home: "Home",
-    posts: "Posts",
-    tags: "Tags",
-    about: "About",
+    posts: "随笔",
+    tags: "技术栈",
+    about: "关于",
     archives: "Archives",
     search: "Search",
   },
@@ -16,8 +16,8 @@ export default {
     sharePostOn: "Share this post on {{platform}}",
     sharePostViaEmail: "Share this post via email",
     tagLabel: "Tags",
-    backToTop: "Back to top",
-    tableOfContents: "Table of contents",
+    backToTop: "回到顶部",
+    tableOfContents: "文章目录",
     goBack: "Go back",
     editPage: "Edit page",
     previousPost: "Previous Post",
@@ -42,11 +42,11 @@ export default {
     tagTitle: "Tag",
     tagDesc: "All the articles with the tag",
 
-    tagsTitle: "Tags",
+    tagsTitle: "我的技术栈",
     tagsDesc: "All the tags used in posts.",
 
-    postsTitle: "Posts",
-    postsDesc: "All the articles I've posted.",
+    postsTitle: "随笔",
+    postsDesc: "记录日常学习与思考。",
 
     archivesTitle: "Archives",
     archivesDesc: "All the articles I've archived.",

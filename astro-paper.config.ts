@@ -3,7 +3,7 @@ import { defineAstroPaperConfig } from "./src/types/config";
 export default defineAstroPaperConfig({
   site: {
     url: "https://qijie-star.github.io/learning-notes/",
-    title: "AstroPaper",
+    title: "章奇杰",
     description: "A minimal, responsive and SEO-friendly Astro blog theme.",
     author: "Sat Naing",
     profile: "https://satna.ing",
@@ -22,7 +22,7 @@ export default defineAstroPaperConfig({
     showArchives: true,
     showBackButton: true,
     editPost: {
-      enabled: true,
+      enabled: false,
       url: "https://github.com/QiJie-star/learning-notes/edit/main/",
     },
     search: "pagefind",
