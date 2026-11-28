@@ -654,7 +654,8 @@ const ogImage = ogImageUrl
       document.head.append(script);
     });
     await loading;
-    const { mermaid } = window as Window & { mermaid: Mermaid };
+    const { mermaid } = window as Window & { mermaid?: Mermaid };
+    if (!mermaid) return;
     mermaid.initialize({ startOnLoad: false, securityLevel: "strict", theme: "neutral" });
     await mermaid.run({ nodes: nodes.filter(node => node.isConnected && !node.hasAttribute("data-processed")) });
   }

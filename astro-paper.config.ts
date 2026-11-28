@@ -23,7 +23,6 @@ export default defineAstroPaperConfig({
     showBackButton: true,
     editPost: {
       enabled: false,
-      url: "https://github.com/QiJie-star/learning-notes/edit/main/",
     },
     search: "pagefind",
     toc: true,
